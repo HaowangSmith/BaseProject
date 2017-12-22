@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+apply plugin: 'com.neenbedankt.android-apt'
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+    defaultConfig {
+        applicationId "com.base.baseproject"
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true//是否混淆
+            shrinkResources true//是否去除无效的资源文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    //config.gradle
+    compile rootProject.ext.dependencies["appcompat-v7"]
+    compile rootProject.ext.dependencies["design"]
+    compile rootProject.ext.dependencies["recyclerview"]
+    compile rootProject.ext.dependencies["cardview"]
+    //BaseRecyclerViewAdapterHelper
+    compile rootProject.ext.dependencies["BaseRecyclerViewAdapterHelper"]
+    //butterknife
+    compile rootProject.ext.dependencies["butterknife"]
+    apt rootProject.ext.dependencies["butterknife-compiler"]
+    //rxjava
+    compile rootProject.ext.dependencies["rxjava"]
+    compile rootProject.ext.dependencies["rxandroid"]
+    //rxpermissions
+    compile rootProject.ext.dependencies["rxpermissions"]
+    //rxbinding
+    compile rootProject.ext.dependencies["rxbinding"]
+    compile rootProject.ext.dependencies["rxbinding-support-v4"]
+    compile rootProject.ext.dependencies["rxbinding-appcompat-v7"]
+    //retrofit2
+    compile rootProject.ext.dependencies["retrofit"]
+    compile rootProject.ext.dependencies["adapter-rxjava2"]
+    compile rootProject.ext.dependencies['retrofit-converter-gson']
+    //okhttp
+    compile rootProject.ext.dependencies["okhttp"]
+    compile rootProject.ext.dependencies["logging-interceptor"]
+    //glide
+    compile rootProject.ext.dependencies["glide"]
+    compile rootProject.ext.dependencies["okhttp3-integration"]
+    compile rootProject.ext.dependencies["glide-transformations"]
+    //dagger2
+    compile rootProject.ext.dependencies["dagger"]
+    apt rootProject.ext.dependencies["dagger-compiler"]
+    compile rootProject.ext.dependencies["javax.annotation"]
+    //rxbus
+    compile rootProject.ext.dependencies["rxbus"]
+
+
+
+}
