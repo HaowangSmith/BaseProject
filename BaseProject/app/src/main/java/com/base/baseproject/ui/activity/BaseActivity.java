@@ -8,8 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.base.baseproject.AppApplication;
 import com.base.baseproject.di.AppComponent;
-import com.base.baseproject.presenter.BasePresenter;
-import com.base.baseproject.ui.BaseView;
+import com.base.mylibrary.presenter.BasePresenter;
+import com.base.mylibrary.presenter.BaseView;
 
 import javax.inject.Inject;
 

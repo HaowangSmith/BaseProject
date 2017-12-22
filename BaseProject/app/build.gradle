@@ -69,6 +69,6 @@ dependencies {
     //rxbus
     compile rootProject.ext.dependencies["rxbus"]
 
-
+    compile 'com.github.HaowangSmith:common-utils:1.0'
 
 }
